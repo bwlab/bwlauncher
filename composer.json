@@ -2,7 +2,7 @@
     "name": "bwlab/bwlauncher",
     "description": "Prestashop Launcher",
     "homepage": "https://www.bwlab.it",
-    "license": "mit",
+    "license": "OSL-3.0",
     "type": "prestashop-module",
     "authors": [
         {
@@ -35,5 +35,6 @@
         "mockery/mockery": "^1.4@dev",
         "phpunit/phpunit": "~8.5.16",
         "symfony/phpunit-bridge": "^3.4"
-    }
+    },
+    "author": "PrestaShop"
 }
