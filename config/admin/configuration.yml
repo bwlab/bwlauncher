@@ -1,0 +1,28 @@
+services:
+
+  bwlab.launcher.data.configuration.launcher_text_data_configuration:
+      class: Bwlab\Launcher\Configuration\LauncherTextDataConfiguration
+      arguments: [ '@prestashop.adapter.legacy.configuration' ]
+
+  bwlab.launcher.provider.launcher_configuration_text_form_data_provider:
+      class: Bwlab\Launcher\Provider\LauncherConfigurationTextFormDataProvider
+      arguments:
+          - '@bwlab.launcher.data.configuration.launcher_text_data_configuration'
+
+  Bwlab\Launcher\Form\LauncherConfigurationFormType:
+      class: Bwlab\Launcher\Form\LauncherConfigurationFormType
+      arguments:
+          - "@translator"
+          - "@=service('prestashop.adapter.legacy.context').getLanguages()"
+      tags:
+          - { name: form.type }
+
+  bwlab.launcher.handler.launcher_configuration_text_form_data_handler:
+      class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+      public: true
+      arguments:
+          - '@form.factory'
+          - '@prestashop.core.hook.dispatcher'
+          - '@bwlab.launcher.provider.launcher_configuration_text_form_data_provider'
+          - 'Bwlab\Launcher\Form\LauncherConfigurationFormType'
+          - 'Launcher'

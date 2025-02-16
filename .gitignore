@@ -1,0 +1,5 @@
+/app/
+/vendor/
+index.php
+.htaccess
+config_*.xml

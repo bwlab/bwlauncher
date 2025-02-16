@@ -1,0 +1,6 @@
+imports:
+  - { resource: configuration.yml }
+services:
+  Bwlab\Launcher\Controller\LauncherController:
+    public: true
+    class: Bwlab\Launcher\Controller\LauncherController

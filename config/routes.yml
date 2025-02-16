@@ -1,0 +1,4 @@
+admin_bwlauncher_configuration:
+  path: bwlab/launcher/configuration
+  methods: [ 'GET' ]
+  controller: Bwlab\Launcher\Controller\LauncherController::configurationAction

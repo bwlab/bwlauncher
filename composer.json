@@ -1,0 +1,39 @@
+{
+    "name": "bwlab/bwlauncher",
+    "description": "Prestashop Launcher",
+    "homepage": "https://www.bwlab.it",
+    "license": "mit",
+    "type": "prestashop-module",
+    "authors": [
+        {
+            "name": "support",
+            "email": "support@bwlab.it"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "preferred-install": "dist",
+        "prepend-autoloader": false
+    },
+    "autoload": {
+        "psr-4": {
+            "Bwlab\\Launcher\\": "src/"
+        },
+        "config": {
+            "prepend-autoloader": false
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bwlab\\Launcher\\Tests\\": "tests/"
+        },
+        "config": {
+            "prepend-autoloader": false
+        }
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4@dev",
+        "phpunit/phpunit": "~8.5.16",
+        "symfony/phpunit-bridge": "^3.4"
+    }
+}
