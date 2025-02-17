@@ -47,11 +47,9 @@ class LauncherController extends FrameworkBundleAdminController
             /** You can return array of errors in form handler and they can be displayed to user with flashErrors */
             $errors = $textFormDataHandler->save($textForm->getData());
 
-
             empty($errors) ?
                 $this->addFlash('success', $this->trans('Successful update.', 'Admin.Notifications.Success')) :
                 $this->flashErrors($errors);
-
         }
 
         $textForm = $textForm->createView();
@@ -63,5 +61,4 @@ class LauncherController extends FrameworkBundleAdminController
             ]
         );
     }
-
 }

@@ -50,5 +50,4 @@ class LauncherConfigurationTextFormDataProvider implements FormDataProviderInter
     {
         $this->configurationTextDataConfiguration->updateConfiguration($data);
     }
-
 }

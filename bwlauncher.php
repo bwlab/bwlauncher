@@ -29,7 +29,7 @@ use Twig\Environment;
 if (!defined('_PS_VERSION_')) {
     exit;
 }
-require_once _PS_MODULE_DIR_.'bwlauncher'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+require_once _PS_MODULE_DIR_ . 'bwlauncher' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
 class Bwlauncher extends Module
 {
@@ -43,7 +43,7 @@ class Bwlauncher extends Module
         $this->author = 'Bwlab.it';
         $this->need_instance = 0;
 
-        /**
+        /*
          * Set $this->bootstrap to true if your module is compliant with bootstrap (PrestaShop 1.6)
          */
         $this->bootstrap = true;
@@ -58,7 +58,7 @@ class Bwlauncher extends Module
         );
         $this->confirmUninstall = $this->trans('Are you sure?', [], 'Modules.Bwlauncher.Admin');
 
-        $this->ps_versions_compliancy = array('min' => '1.7.8', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = ['min' => '1.7.8', 'max' => _PS_VERSION_];
     }
 
     public function getContent()
@@ -77,12 +77,12 @@ class Bwlauncher extends Module
         /** @var Environment $twig */
         $twig = $this->get('twig');
         $masterTab = Db::getInstance()->executeS(
-            'SELECT id_tab  FROM '._DB_PREFIX_.'tab where id_parent = 0 '
+            'SELECT id_tab  FROM ' . _DB_PREFIX_ . 'tab where id_parent = 0 '
         );
         $mainTabs = [];
         foreach ($masterTab as $master) {
             $subTabs = Db::getInstance()->executeS(
-                'select id_tab from '._DB_PREFIX_.'tab where id_parent = '.$master['id_tab']
+                'select id_tab from ' . _DB_PREFIX_ . 'tab where id_parent = ' . $master['id_tab']
             );
             foreach ($subTabs as $subTab) {
                 $mainTabs[] = $subTab['id_tab'];
@@ -95,7 +95,7 @@ class Bwlauncher extends Module
         $dataJson = [];
         foreach ($tabs as $tab) {
             $dataJson[] = [
-                'name' => $tab['name'].' - '.$tab['wording'],
+                'name' => $tab['name'] . ' - ' . $tab['wording'],
                 'url' => $this->context->link->getTabLink($tab),
             ];
         }
@@ -110,7 +110,7 @@ class Bwlauncher extends Module
 
     public function hookDisplayBackOfficeHeader()
     {
-        $this->context->controller->addCSS('modules/'.$this->name.'/views/css/launcher.css');
+        $this->context->controller->addCSS('modules/' . $this->name . '/views/css/launcher.css');
     }
 
     public function install()
@@ -123,9 +123,8 @@ class Bwlauncher extends Module
 
     public function hookDashboardZoneOne($params)
     {
-        
-
     }
+
     public function isUsingNewTranslationSystem()
     {
         return true;
